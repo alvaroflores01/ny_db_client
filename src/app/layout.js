@@ -1,5 +1,7 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
+import axios from 'axios';
+
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -9,6 +11,10 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  //Axios Config ? TODO
+  axios.defaults.baseURL = "https://httpbin.org/" //process.env.SERVER_URL;
+  axios.defaults.withCredentials = true;
+
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>
