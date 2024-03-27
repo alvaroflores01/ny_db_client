@@ -1,5 +1,6 @@
 'use client';
-import axios from 'axios';
+
+import axios from '../util/axios.js';
 import React, { useState, useEffect } from 'react';
 
 function Profile() {
@@ -8,7 +9,7 @@ function Profile() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/testTable');
+        const response = await axios.get('/testTable');
         // Assuming you have an API route set up
         setData(response.data);
       } catch (error) {
